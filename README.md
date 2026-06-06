@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TeamSync — Team Collaboration Platform
 
-## Getting Started
+A full-stack team collaboration platform built for school groups, campus projects, and professional teams.
 
-First, run the development server:
+## 🚀 Live Demo
+https://teamsync-rho.vercel.app/
 
+## ✨ Features
+
+- **Kanban Board** — Manage tasks with To Do, In Progress, and Done columns. Filter by member, priority, and deadline.
+- **Real-time Team Chat** — In-project messaging with mention support, reply, edit, and delete.
+- **Member Roulette** — Randomly assign members to roles with a spin wheel.
+- **Role Management** — Create custom roles (Frontend, Backend, QC, etc.) and assign multiple members per role.
+- **Smart Notifications** — Bell icon with badge for unread messages and mentions.
+- **Invite System** — Invite members via email (with accept/decline flow) or via a unique 6-character invite code.
+- **Profile Management** — Edit name, bio, and profile picture.
+- **Task Comments** — Comment on individual tasks with real-time updates.
+- **Landing Page** — Public-facing landing page showcasing the platform.
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Next.js 14 (App Router), Tailwind CSS |
+| Backend | Next.js API Routes |
+| Database | Supabase (PostgreSQL) |
+| Auth | Supabase Auth |
+| Realtime | Supabase Realtime |
+| Storage | Supabase Storage |
+| Deployment | Vercel |
+
+## 🗄️ Database Schema
+
+- `profiles` — User profiles (name, bio, avatar)
+- `projects` — Projects with unique invite codes
+- `project_members` — Project membership with roles (admin/member)
+- `project_roles` — Custom roles per project
+- `role_members` — Member-to-role assignments
+- `tasks` — Tasks with priority, status, deadline, and assignee
+- `task_comments` — Comments on tasks
+- `messages` — Real-time chat messages per project
+- `notifications` — Mention notifications
+- `invite_requests` — Email invite requests with accept/decline
+- `join_notifications` — Notifications when someone joins via invite code
+
+## 🏃 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- Supabase account
+
+### Installation
+
+1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Cleve-git/Teamsync.git
+cd teamsync
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Setup environment variables
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Fill in your Supabase credentials:
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-## Learn More
+4. Run the development server
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
+teamsync/
+├── app/
+│   ├── dashboard/          # Dashboard & project pages
+│   │   ├── profile/        # Profile edit page
+│   │   └── projects/[id]/  # Project detail + Kanban + Chat
+│   │       └── roulette/   # Member roulette page
+│   ├── login/              # Login page
+│   ├── register/           # Register page
+│   └── page.tsx            # Landing page
+├── components/             # Reusable components
+│   ├── KanbanBoard.js
+│   ├── ProjectChat.js
+│   ├── RolesBoard.js
+│   ├── CreateProjectModal.js
+│   ├── CreateTaskModal.js
+│   ├── TaskCommentModal.js
+│   ├── InviteMemberModal.js
+│   └── JoinProjectModal.js
+└── lib/supabase/           # Supabase client setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👤 Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by Nasyith Nabhan
