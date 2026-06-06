@@ -81,6 +81,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) to view the app.
 
 ## 📁 Project Structure
+```
 teamsync/
 ├── app/
 │   ├── dashboard/          # Dashboard & project pages
@@ -100,6 +101,7 @@ teamsync/
 │   ├── InviteMemberModal.js
 │   └── JoinProjectModal.js
 └── lib/supabase/           # Supabase client setup
+```
 
 ## 👤 Author
 
